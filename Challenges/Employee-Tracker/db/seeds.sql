@@ -20,7 +20,7 @@ VALUES
 ("Lawyer", 250000, 4),
 ("Paralegal", 50000, 4);
 
-INSERT INTO employee(first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
 ("Jon", "Johnson", 1),
 ("Greg", "Gregson", 2, 1),
@@ -29,6 +29,12 @@ VALUES
 ("Sammy", "Samuels", 3, 2),
 ("Tiff", "Jenkins", 4),
 ("Molly", "Dunn", 5, 6),
-("David", "Pollock", 5, 6)
-("Duncan", "Idaho", 6, 7)
+("David", "Pollock", 5, 6),
+("Duncan", "Idaho", 6, 7),
+("Reed", "Richards", 7),
+("Tony", "Stark", 8, 10),
+("Bruce", "Banner", 9, 11),
+("Harvey", "Dent", 10),
+("Harley", "Quinzel", 11, 13),
+("Edward", "Nigma", 12, 14);
 
