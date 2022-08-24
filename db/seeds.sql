@@ -1,3 +1,5 @@
+USE roster;
+
 INSERT INTO departments (name)
 VALUES
 ("Sales"),

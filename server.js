@@ -1,17 +1,6 @@
 const inquirer = require("inquirer");
-const mysql = require("mysql2"); 
+const db = require("./db/connection");
 require("console.table");
-
-const db = mysql.createConnection(
-    {
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "roster",
-},
-console.log("Connected to the roster database.")
-);
-
 
 function viewDepartments() {
     db.query(`SELECT * FROM departments`, function (err, results) {
@@ -34,44 +23,73 @@ function viewEmployees() {
 };
 
 // function addDepartment()  {
-    
+//     inquirer.prompt([
+//         {
+//             type: "input",
+//             name: "department",
+//             message: "What is the name of the department you are adding?",
+//         },        
+//     ])
 //         db.query(`INSERT INTO departments (name) VALUES (?)`, params, (err, result) => {
 //         })
 // };
 
 // function addRole()  {
-   
-//         const sql = `INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`;
+//    inquirer.prompt([
+//     {
+//         type: "input",
+//         name: "title",
+//         message: "What is the title of the new role?"
+//     },
+//     {
+//         type: "input",
+//         name: "salary",
+//         message: "Without using dollar signs or commas, please enter the salary for this role."
+//     },
+//     {
+//         type: "list",
+//         name: "department",
+//         message: "What department will this role fall under?",
+//         choices: ["Sales", "Engineering", "Finance", "Legal"]
+//     }
+//    ])
+//       db.query(`INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)`, function (err, results) {
+//         const params = results.map
+//       })  ;
         
 // };
 
 // function addEmployee() {
-    
+//     inquirer.prompt ([
+//         {
+//             type: "input",
+//             name: "firstname",
+//             message: "What is the new employee's first name?"
+//         },
+//         {
+//             type: "input",
+//             name: "lastname",
+//             message: "What is the new employee's last name?"
+//         },
+//         {
+//             type: "list",
+//             name: "role",
+//             message: "Please select the role this person will have",
+//             choices: []
+//         }
+//     ])
 //         const sql = `INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)`;
         
 // };
 
 // updateRole() = function () {
-//     router.put("/employee/:id", (req, res) => {
+    
 //         const sql = `UPDATE employees SET role = ? WHERE id = ?`;
 //         const params = [req.body.role, req.params.id];
 //         db.query(sql, params, (err, result) => {
-//             if(err) {
-//                 res.status(400).json({error: err.message});
-//             } else if (!result.affectedRows) {
-//                 res.json({
-//                     message: "Employee not found."
-//                 });
-//             } else {
-//                 res.json({
-//                     message: "Success.",
-//                     data: req.body,
-//                     changes: result.affectedRows
-//                 });
+            
 //                 startUpQuestion();
-//             }
-//         });
-//     });
+//             })
 // };
 function startUpQuestion() {
     inquirer.prompt([
@@ -91,7 +109,7 @@ function startUpQuestion() {
         ],
       },
     ])
-    .then(({answer}) => {
+    .then((answer) => {
       switch (answer) {
           case "View All Departments":
             viewDepartments();
