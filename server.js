@@ -10,7 +10,7 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-  db.query(`SELECT * FROM roles`, function (err, results) {
+  db.query(`SELECT * FROM roles LEFT JOIN departments ON roles.department_id = department.id`, function (err, results) {
     console.table(results);
     startUpQuestion();
   });
