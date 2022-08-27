@@ -10,13 +10,13 @@ function viewDepartments() {
 }
 
 function viewRoles() {
-  db.query(`SELECT * FROM roles LEFT JOIN departments ON roles.department_id = department.id`, function (err, results) {
+  db.query(`SELECT * FROM roles LEFT JOIN departments ON roles.department_id = departments.id`, function (err, results) {
     console.table(results);
     startUpQuestion();
   });
 }
 function viewEmployees() {
-  db.query(`SELECT * FROM employees`, function (err, results) {
+  db.query(`SELECT * FROM employees LEFT JOIN roles ON roles.id = employees.role_id LEFT JOIN departments on departments.id = roles.department_id;`, function (err, results) {
     console.table(results);
     startUpQuestion();
   });
